@@ -1,0 +1,10 @@
+{% extends "base_template.html" %}
+
+{% block title %}Голосовалка{% endblock %}
+{% block subtitle %}Текущие темы для голосования (<a href="newtopic">создать новую</a>){% endblock %}
+
+{% block content %}
+    {% for topic in topics %}
+        <p><a href="topic?id={{topic.id}}">{{topic.name}}</a> (создана пользователем <a href="user?name={{topic.user.id}}">{{topic.user.name}}</a>)</p>
+    {% endfor %}
+{% endblock %}

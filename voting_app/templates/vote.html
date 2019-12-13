@@ -1,0 +1,9 @@
+{% extends "base_template.html" %}
+{% load index %}
+
+{% block title %}Голос принят{% endblock %}
+{% block subtitle %}Ваш голос принят!{% endblock %}
+
+{% block content %}
+    <p>В вопросе "<a href="topic?id={{topic.id}}">{{topic.name}}</a>" вы проголосовали за вариант "{{topic.options|index:option}}".</p>
+{% endblock %}

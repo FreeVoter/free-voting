@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>{% block title %}{% endblock %} - Голосовалка</title>
+</head>
+<body>
+    <h1><a href="/">Голосовалка</a></h1>
+    {% if current_user %}
+    <p>Вы зашли как <a href="/user?name={{current_user.id}}">{{current_user.name}}</a></p>
+    {% else %}
+    <p>Вы не зашли. <a href="/login">Войти</a> или <a href="/signup">зарегистрироваться</a></p>
+    {% endif %}
+    <hr>
+    <h3>{% block subtitle %}{% endblock %}</h3>
+    {% block content %}{% endblock %}
+    <hr>
+    <p>(c) Ученики МШП, 2019-2020</p>
+    <p style="font-style: italic;">Прототип Артёма Фомина</p>
+</body>
+</html>
