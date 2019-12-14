@@ -64,6 +64,47 @@ header{
 .golosovanie{
     background-color: #24292E;
 }
+.auth{
+    margin-right: 40%;
+    margin-left: 40%;
+    margin-bottom: 20%;
+    border-radius: 15px;
+    background-color: #2C363F;
+}
+.auth_text{
+    color: white;
+    font-size: 30px;
+}
+.auth_info{
+    color:rgb(153, 153, 153) ;
+}
+.login,.password{
+    height: 40px;
+    width: 70%;
+    font-size: 15px;
+    padding-left: 30px;
+    border-radius: 10px;
+}
+.button_reg,.button_auth{
+    width: 50%;
+    height: 60px;
+    border-style: solid;
+    border-radius: 15px;
+    margin-top: 8%;
+    margin-bottom: 12%;
+    font-weight: 800;
+    border-width: 0px;
+    font-size: 20px;
+    color: rgb(82, 82, 82);
+}
+.button_reg{
+    width: 80%;
+    margin-bottom: 10px;
+    background-color:rgb(26, 158, 219) ;
+}
+.button_auth{
+    background-color: orange;
+}
 .vote_ans{
     background-color: rgb(0, 174, 255);
     border-radius: 10px;
@@ -83,7 +124,13 @@ header{
     width: 10%;
     background-color: #2C363F;
     border-width: 3px;
-    border-color: white;
+    border-color: rgb(0, 174, 255);
+    transition: all 0.2s;
+    border-style: solid;
+}
+.vote_info:hover{
+    cursor: unset;
+    background-color: 	#00FF6F;
 }
 .vote{
     border-radius: 10px;
