@@ -197,3 +197,9 @@ h1{
     background-color: #24292E;
     color:rgb(133, 133, 133) ;
 }
+.footerinfo{
+    text-decoration: none;
+    color: gray;
+    text-align: left;
+    margin-left: 38%
+}
