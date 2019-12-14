@@ -85,6 +85,10 @@ header{
     padding-left: 30px;
     border-radius: 10px;
 }
+.footerinfo{
+    text-decoration: none;
+    color: gray;
+}
 .button_reg,.button_auth{
     width: 50%;
     height: 60px;
