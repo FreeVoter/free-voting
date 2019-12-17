@@ -1,12 +1,12 @@
 {% extends "base_template.html" %}
 {% load index %}
 
-{% block title %}{{topic.name}}{% endblock %}
+{% block title %}{{topic.question}}{% endblock %}
 {% block subtitle %}Тема для голосования{% endblock %}
 
 {% block content %}
-    <p>{{topic.name}}</p>
-    <p>Создана пользователем <a href="user?name={{topic.user.id}}">{{topic.user.id}}</a></p>
+    <p>{{topic.question}}</p>
+    <!--<p>Создана пользователем <a href="user?name={{topic.author.id}}">{{topic.author.username}}</a></p>-->
     <p>Варианты:</p>
     {% for option in topic.options %}
         <p><a href="vote?id={{topic.id}}&option={{forloop.counter0}}">{{option}}</a> ({{topic.percentages|index:forloop.counter0|floatformat}}%, {{topic.votes|index:forloop.counter0}} проголосовавших)</p>
