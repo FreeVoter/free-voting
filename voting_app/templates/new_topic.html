@@ -4,9 +4,10 @@
 {% block subtitle %}Создать новую тему{% endblock %}
 
 {% block content %}
-<form action="/edittopic" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Далее">
-</form>
+    <h1>ДОБАВЛЕНИЕ ЕЩЁ НЕ РАБОТАЕТ! Добавляйте через БД или переименуйте testdb.sqlite3 в db.sqlite3</h1>
+    <form action="/edittopic" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Далее">
+    </form>
 {% endblock %}

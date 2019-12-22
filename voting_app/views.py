@@ -4,12 +4,14 @@ from voting_app import models
 from voting_app import forms
 
 topics = []
-for i in range(0, len(models.Topic.objects.all())):
-    topics.append(Topic())
-    topics[i].load_from_model(models.Topic.objects.get(id=i))
 
 
 def index_page(request):
+    global topics
+    topics = []
+    for i in range(0, len(models.Topic.objects.all())):
+        topics.append(Topic())
+        topics[i].load_from_model(models.Topic.objects.get(id=i))
     context = {'topics': topics}
     return render(request, 'index.html', context)
 
@@ -37,4 +39,4 @@ def new_topic_page(request):
 
 
 def add_option_to_topic_page(request):
-    form = forms.AddOptionToTopicForm()
+    return render(request, 'placeholder.html')
