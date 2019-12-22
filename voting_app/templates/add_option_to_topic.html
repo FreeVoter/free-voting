@@ -1,0 +1,21 @@
+{% extends "base_template.html" %}
+
+{% block title %}Добавить варианты в тему{% endblock %}
+{% block subtitle %}Создать новую тему{% endblock %}
+
+{% block content %}
+<form action="/edittopic" method="post">
+    {% csrf_token %}
+    <p>Добавленные варианты:</p>
+    {% for added_option in added_options %}
+    <p>{{added_option}}</p>
+    {% endfor %}
+    {{ form.as_p }}
+    <input type="submit" value="Добавить">
+</form>
+<form action="/topic" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="new_topic" value="1">
+    <input type="submit" value="Готово">
+</form>
+{% endblock %}

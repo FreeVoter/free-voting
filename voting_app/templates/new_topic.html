@@ -4,5 +4,9 @@
 {% block subtitle %}Создать новую тему{% endblock %}
 
 {% block content %}
-    <p>Здесь когда-то будет что-то. Но не сейчас.</p>
+<form action="/edittopic" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Далее">
+</form>
 {% endblock %}

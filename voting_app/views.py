@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from voting_app.topic import Topic
 from voting_app import models
+from voting_app import forms
 
 topics = []
 for i in range(0, len(models.Topic.objects.all())):
@@ -14,14 +15,16 @@ def index_page(request):
 
 
 def topic_page(request):
-    current_topic = {'topic': topics[int(request.GET['id'])]}
-    return render(request, 'topic.html', current_topic)
-
-
-def vote_page(request):
-    topics[int(request.GET['id'])].vote(int(request.GET['option']))
-    current_topic = {'topic': topics[int(request.GET['id'])], 'option': int(request.GET['option'])}
-    return render(request, 'vote.html', current_topic)
+    if request.method == "GET":
+        current_topic = {'topic': topics[int(request.GET['id'])]}
+        return render(request, 'topic.html', current_topic)
+    elif "new_topic" in request.POST and request.POST["new_topic"] == '1':
+        current_topic = {'topic': topics[int(request.GET['id'])], 'new_topic': True}
+        return render(request, 'topic.html', current_topic)
+    else:
+        topics[int(request.GET['id'])].vote(int(request.POST['option_id']))
+        current_topic = {'topic': topics[int(request.GET['id'])], 'option': int(request.POST['option_id']), 'voted': True}
+        return render(request, 'topic.html', current_topic)
 
 
 def user_page(request):
@@ -29,4 +32,9 @@ def user_page(request):
 
 
 def new_topic_page(request):
-    return render(request, 'new_topic.html')
+    context = {'form': forms.AddTopicForm()}
+    return render(request, 'new_topic.html', context)
+
+
+def add_option_to_topic_page(request):
+    form = forms.AddOptionToTopicForm()

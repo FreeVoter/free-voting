@@ -21,7 +21,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index_page),
     path('topic', views.topic_page),
-    path('vote', views.vote_page),
     path('user', views.user_page),
     path('newtopic', views.new_topic_page),
+    path('edittopic', views.add_option_to_topic_page),
 ]

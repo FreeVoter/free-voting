@@ -6,10 +6,20 @@
 
 {% block content %}
     <p>{{topic.question}}</p>
+    {% if voted %}
+    <p>Вы проголосовали за вариант "{{topic.options|index:option}}".</p>
+    {% endif %}
+    {% if new_topic %}
+    <p>Тема создана!</p>
+    {% endif %}
     <!--<p>Создана пользователем <a href="user?name={{topic.author.id}}">{{topic.author.username}}</a></p>-->
     <p>Варианты:</p>
-    {% for option in topic.options %}
-        <p><a href="vote?id={{topic.id}}&option={{forloop.counter0}}">{{option}}</a> ({{topic.percentages|index:forloop.counter0|floatformat}}%, {{topic.votes|index:forloop.counter0}} проголосовавших)</p>
+    {% for topic_option in topic.options %}
+        <p><a href="#" onclick="document.forms['vote_form'].option_id.value = {{forloop.counter0}}; document.forms['vote_form'].submit();">{{topic_option}}</a> ({{topic.percentages|index:forloop.counter0|floatformat}}%, {{topic.votes|index:forloop.counter0}} проголосовавших)</p>
     {% endfor %}
     <p>(Проголосовало {{topic.total_votes}} человек)</p>
+    <form name="vote_form" action="/topic?id={{topic.id}}" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="option_id" value="-1">
+    </form>
 {% endblock %}
