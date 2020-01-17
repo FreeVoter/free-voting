@@ -154,17 +154,22 @@ header{
 #first{
     margin-left: 30%;
 }
-.setsort{
-    font-weight: 800;
-    font-family: Arial, Helvetica, sans-serif;
-    height: 40px;
-    border-width: 1px;
-    border-color:rgb(114, 145, 190) ;
+.delete_variant{
+    margin-left: 10px;
+    height: 60px;
     border-style: solid;
     border-radius: 15px;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-color: rgb(122, 150, 192);
+    font-weight: 800;
+    border-width: 0px;
+    color: rgb(206, 206, 206);
+    background-color: rgb(206, 66, 66);
+    font-size: 15px;
+    float: none;
+    width: 20%;
+}
+.vote_variant{
+    margin-top: 30px;
+    width: 50%;
 }
 .newvote{
     margin-bottom: 50px;
