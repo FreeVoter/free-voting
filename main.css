@@ -288,18 +288,13 @@ h1{
 }
 .footer{            /*класс*/
     text-align: center;
-    width: 50%;
+    font-size: 20px;
+    width: 33.3%;
     float: left;
     background-color: #24292E;
-    color:rgb(133, 133, 133) ;
+    color:rgb(255, 255, 255) ;
 }
 .footerinfo{
-    text-decoration: none;
-    color: gray;
-    text-align: left;
-    margin-left: 4%
-}
-.footerinfo2{
     text-decoration: none;
     color: gray;
     text-align: left;
